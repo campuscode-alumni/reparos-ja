@@ -21,4 +21,19 @@ feature 'Contractor create account' do
     expect(page).to have_link('Sair')
   end
 
+  scenario "and leave fields blank" do
+    create(:category, name: 'Pedreiro')
+
+    visit root_path
+    click_on 'Cadastrar-se como Prestador'
+
+    fill_in 'Nome', with: ''
+    fill_in 'E-mail', with: ''
+    fill_in 'Senha', with: ''
+    fill_in 'Confirmar Senha', with: ''
+    fill_in 'CPF', with: ''
+    click_on 'Enviar'
+
+    expect(page).to have_content('Não foi possível criar a conta')
+  end
 end
