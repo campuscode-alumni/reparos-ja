@@ -1,0 +1,7 @@
+<%= link_to 'Cadastrar-se como Prestador', new_contractor_registration_path %>
+
+<% if contractor_signed_in? %>
+  <p>
+    <%= "Bem-Vindo #{current_contractor.name}" %>
+  </p>
+<% end %>
