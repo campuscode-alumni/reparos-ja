@@ -36,7 +36,9 @@ feature 'visitor navigate into categories' do
     expect(page).to have_css('h1', text: 'Prestadores de Serviço')
     expect(page).to have_css('p', text: 'Dionisio')
     expect(page).to have_css('p', text: 'Geraldo')
+    expect(page).to have_css('small', text: 'Eletricista')
     expect(page).to_not have_css('p', text: 'Pedro')
+    expect(page).to_not have_css('small', text: 'Encanador')
   end
 
 end
