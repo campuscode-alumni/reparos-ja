@@ -19,12 +19,24 @@ feature 'visitor navigate into categories' do
     visit categories_path
     click_on 'Eletricista'
 
-    expect(current_path).to eq(category_path(category))
+    expect(current_path).to eq(category_contractors_path(category))
     expect(page).to have_css('h1', text: 'Prestadores de Serviço')
   end
 
-  scenario 'and view contractors from this category' do
+  scenario 'and view contractors from selected category' do
+    category_a = create(:category, name: 'Eletricista')
+    category_b = create(:category, name: 'Encanador')
+    contractor_a = create(:contractor, name: 'Dionisio', category_id: category_a.id)
+    contractor_b = create(:contractor, name: 'Geraldo', category_id: category_a.id)
+    contractor_c = create(:contractor, name: 'Pedro', category_id: category_b.id)
 
+    visit categories_path
+    click_on 'Eletricista'
+
+    expect(page).to have_css('h1', text: 'Prestadores de Serviço')
+    expect(page).to have_css('p', text: 'Dionisio')
+    expect(page).to have_css('p', text: 'Geraldo')
+    expect(page).to_not have_css('p', text: 'Pedro')
   end
 
 end

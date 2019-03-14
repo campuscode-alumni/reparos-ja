@@ -1,0 +1,9 @@
+<h1>Prestadores de Serviço</h1>
+<ul>
+  <% @contractors.each do |contractor| %>
+    <li>
+      <p><%= contractor.name %></p>
+      <small><%= contractor.category.name %></small>
+    </li>
+  <% end %>
+</ul>
