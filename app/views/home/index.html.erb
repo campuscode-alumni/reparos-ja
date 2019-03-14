@@ -1,0 +1,14 @@
+
+<% if contractor_signed_in? %>
+  <p>
+    <%= "Logado como: #{current_contractor.email}"%>
+  </p>
+  <p>
+    <%= "Bem-Vindo #{current_contractor.name}!" %>
+  </p>
+  <p>
+    <%= link_to "Sair" %>
+  </p>
+<% else %>
+  <%= link_to 'Cadastrar-se como Prestador', new_contractor_registration_path %>
+<% end %>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'categories#index'
+  devise_for :contractors
+  root to: 'home#index'
 
   resources :categories, only: [:index] do
     resources :contractors, only: [:index]
   end
+  
 end

@@ -26,9 +26,9 @@ feature 'visitor navigate into categories' do
   scenario 'and view contractors from selected category' do
     category_a = create(:category, name: 'Eletricista')
     category_b = create(:category, name: 'Encanador')
-    contractor_a = create(:contractor, name: 'Dionisio', category_id: category_a.id)
-    contractor_b = create(:contractor, name: 'Geraldo', category_id: category_a.id)
-    contractor_c = create(:contractor, name: 'Pedro', category_id: category_b.id)
+    contractor_a = create(:contractor, name: 'Dionisio', category_id: category_a.id, email: 'dionisio@gmail.com', password: 'dionisio123', cpf:'987654332100')
+    contractor_b = create(:contractor, name: 'Geraldo', category_id: category_a.id, email: 'geraldo@gmail.com', password: 'geraldo456', cpf:'56754332100')
+    contractor_c = create(:contractor, name: 'Pedro', category_id: category_b.id, email: 'pedro@gmail.com', password: 'pedro789', cpf:'789654332100')
 
     visit categories_path
     click_on 'Eletricista'
