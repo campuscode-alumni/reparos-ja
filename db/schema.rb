@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_002238) do
+ActiveRecord::Schema.define(version: 2019_03_15_001410) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(version: 2019_03_14_002238) do
     t.index ["category_id"], name: "index_contractors_on_category_id"
     t.index ["email"], name: "index_contractors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_contractors_on_reset_password_token", unique: true
+  end
+
+  create_table "estimates", force: :cascade do |t|
+    t.text "description"
+    t.string "location"
+    t.date "service_date"
+    t.string "day_shift"
+    t.integer "contractor_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contractor_id"], name: "index_estimates_on_contractor_id"
+    t.index ["user_id"], name: "index_estimates_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

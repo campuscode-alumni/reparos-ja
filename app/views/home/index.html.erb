@@ -12,3 +12,7 @@
 <% else %>
   <%= link_to 'Cadastrar-se como Prestador', new_contractor_registration_path %>
 <% end %>
+
+<% @contractors.each do |contractor| %>
+  <%= link_to contractor.name, contractor %>
+<% end %>

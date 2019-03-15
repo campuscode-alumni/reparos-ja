@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   resources :categories, only: [:index] do
     resources :contractors, only: [:index]
   end
+
+  resources :contractors, only: [:show] do
+    resources :estimates, only: [:new, :create]
+  end
   
 end

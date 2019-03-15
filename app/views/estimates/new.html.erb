@@ -1,0 +1,8 @@
+<%= form_for([@contractor, @estimate]) do |f| %>
+  <%= f.label :description, 'Descrição do serviço' %>
+  <%= f.text_area :description %>
+  <%= f.label :location, 'Local' %>
+  <%= f.text_field :location %>
+  <%= f.label :date, 'Data' %>
+  <%= f.date_field :date %>
+<% end %>
