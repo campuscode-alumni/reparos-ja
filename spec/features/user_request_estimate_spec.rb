@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'User request estimate' do
 
   scenario 'successfully' do
-    pending
     pedreiro = create(:category, name: 'Pedreiro')
     create(:contractor, name: 'Dionisio', category_id: pedreiro.id, email: 'dionisio@gmail.com', password: 'dionisio123', cpf:'987654332100')
 

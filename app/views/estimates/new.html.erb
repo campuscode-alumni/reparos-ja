@@ -3,6 +3,8 @@
   <%= f.text_area :description %>
   <%= f.label :location, 'Local' %>
   <%= f.text_field :location %>
-  <%= f.label :date, 'Data' %>
-  <%= f.date_field :date %>
+  <%= f.label :service_date, 'Data' %>
+  <%= f.text_field :service_date %>
+  <%= f.label :day_shift, 'Manhã' %>
+  <%= f.check_box(:day_shift) %>
 <% end %>
