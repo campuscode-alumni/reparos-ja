@@ -1,6 +1,7 @@
 class ContractorsController < ApplicationController
   def index
-    @contractors = Category.find(params[:category_id]).contractors
+    @category = Category.find(params[:category_id])
+    @contractors = @category.contractors
   end
 
   def show
