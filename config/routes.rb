@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :contractors
   root to: 'home#index'
 
-  resources :categories, only: [:index, :edit, :update] do
+  resources :categories, only: [:index, :edit, :update, :new, :create, :show] do
     resources :contractors, only: [:index]
   end
 
