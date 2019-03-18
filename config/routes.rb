@@ -7,8 +7,10 @@ Rails.application.routes.draw do
     resources :contractors, only: [:index]
   end
 
-  resources :contractors, only: [:show] do
+  resources :contractors, only: [:show, :edit, :update] do
     resources :estimates, only: [:new, :create]
   end
+
+  resources :users, only: [:show]
   
 end

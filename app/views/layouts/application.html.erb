@@ -13,7 +13,17 @@
     <header>
       <nav>
         <ul>
-          <li><%= link_to 'Sign up as User', new_user_registration_path %></li>
+          <% if ! contractor_signed_in? && ! user_signed_in? %>
+            <li><%= link_to 'Cadastrar-se como Usuário', new_user_registration_path %></li>
+          <% else %>
+            <% if contractor_signed_in?
+              profile_path = contractor_path(current_contractor)
+            elsif user_signed_in?
+              profile_path = user_path(current_user)
+            end %>
+            <li><%= link_to 'Meu Perfil', profile_path %></li>
+          <% end %>
+
         </ul>
       </nav>
     </header>
