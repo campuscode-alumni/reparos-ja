@@ -1,6 +1,11 @@
 <h1> Categorias </h1>
 <ul>
+<% if @category.any? %>
   <%= @categories.each do |category| %>
     <li> <%= link_to category.name, category_contractors_path(category) %></li>
   <% end %>
 </ul>
+<% else %>
+  <%= link_to 'Excluir Categoria', category_path(@category), method: :delete %>
+<% end %>
+
