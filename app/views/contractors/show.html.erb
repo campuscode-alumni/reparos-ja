@@ -1,1 +1,5 @@
+<% if flash[:message] %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
 <%= link_to 'Solicitar orçamento', new_contractor_estimate_path(@contractor) %>

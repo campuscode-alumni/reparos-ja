@@ -5,6 +5,9 @@
   <%= f.text_field :location %>
   <%= f.label :service_date, 'Data' %>
   <%= f.text_field :service_date %>
-  <%= f.label :day_shift, 'Manhã' %>
-  <%= f.check_box(:day_shift) %>
+  <%= f.label :day_shift, 'Turno' %>
+  <%= f.select :day_shift, options_for_select([['Manhã'], ['Tarde'], ['Noite']]) %>
+  <%= f.label :photo, 'Foto' %>
+  <%= f.file_field :photo %>
+  <%= f.submit 'Enviar solicitação' %>
 <% end %>
