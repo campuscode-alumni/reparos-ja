@@ -1,3 +1,8 @@
+<% if @estimate.errors.any? %>
+  <p>Erro ao enviar solicitação</p>
+<% end %>
+
+
 <%= form_for([@contractor, @estimate]) do |f| %>
   <%= f.label :description, 'Descrição do serviço' %>
   <%= f.text_area :description %>

@@ -3,9 +3,11 @@ require 'rails_helper'
 feature 'User request estimate' do
 
   scenario 'successfully' do
+    user = create(:user)
     pedreiro = create(:category, name: 'Pedreiro')
     contractor = create(:contractor, name: 'Dionisio', category_id: pedreiro.id, email: 'dionisio@gmail.com', password: 'dionisio123', cpf:'987654332100')
 
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Dionisio'
     click_on 'Solicitar orçamento'
@@ -23,9 +25,11 @@ feature 'User request estimate' do
   end
 
   scenario 'and leave blank fields' do
+    user = create(:user)
     pedreiro = create(:category, name: 'Pedreiro')
     contractor = create(:contractor, name: 'Dionisio', category_id: pedreiro.id, email: 'dionisio@gmail.com', password: 'dionisio123', cpf:'987654332100')
 
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Dionisio'
     click_on 'Solicitar orçamento'
