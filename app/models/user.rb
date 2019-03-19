@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :estimates
   validates :name, presence: {message: 'É necessário informar um nome'}
 end

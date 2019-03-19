@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :estimate do
-    description { "MyText" }
-    location { "MyString" }
+    description { "Reparos Residênciais" }
+    location { "São Paulo" }
     service_date { "2019-03-14" }
-    day_shift { "MyString" }
-    contractor { nil }
-    user { nil }
+    day_shift { "Noite" }
+    contractor
+    user
   end
 end

@@ -16,12 +16,8 @@
           <% if ! contractor_signed_in? && ! user_signed_in? %>
             <li><%= link_to 'Cadastrar-se como Usuário', new_user_registration_path %></li>
           <% else %>
-            <% if contractor_signed_in?
-              profile_path = contractor_path(current_contractor)
-            elsif user_signed_in?
-              profile_path = user_path(current_user)
-            end %>
-            <li><%= link_to 'Meu Perfil', profile_path %></li>
+            <li><%= link_to 'Meu Perfil', current_user || current_contractor %></li>
+            <li><%= link_to 'Meus Orçamentos', estimates_path %></li>
           <% end %>
 
         </ul>

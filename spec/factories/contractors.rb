@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :contractor do
-    name { "MyString" }
+    name { 'João' }
     email { 'mail@teste.com' }
     category
     cpf { '1234567890' }
