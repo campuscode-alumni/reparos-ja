@@ -43,4 +43,23 @@ feature 'User request estimate' do
     expect(page).to have_content('Erro ao enviar solicitação')
     expect(Estimate.count).to eq(0)
   end
+
+  scenario 'only if authenticated' do
+    pedreiro = create(:category, name: 'Pedreiro')
+    contractor = create(:contractor, name: 'Dionisio', category_id: pedreiro.id, email: 'dionisio@gmail.com', password: 'dionisio123', cpf:'987654332100')
+
+    visit root_path
+    click_on 'Dionisio'
+
+    expect(page).not_to have_link('Solicitar orçamento')
+  end
+
+  scenario 'and gets redirected to login' do
+    pedreiro = create(:category, name: 'Pedreiro')
+    contractor = create(:contractor, name: 'Dionisio', category_id: pedreiro.id, email: 'dionisio@gmail.com', password: 'dionisio123', cpf:'987654332100')
+
+    visit new_contractor_estimate_path(contractor)
+
+    expect(current_path).to eq(new_user_session_path)
+  end
 end

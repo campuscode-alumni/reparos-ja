@@ -2,6 +2,9 @@
   <p><%= flash[:message] %></p>
 <% end %>
 
-<%= link_to 'Solicitar orçamento', new_contractor_estimate_path(@contractor) %>
+<% if user_signed_in? %>
+  <%= link_to 'Solicitar orçamento', new_contractor_estimate_path(@contractor) %>
+<% end %>
+
 <%= link_to 'Atualizar Perfil', edit_contractor_path(@contractor) %>
 
