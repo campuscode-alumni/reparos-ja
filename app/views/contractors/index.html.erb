@@ -1,3 +1,9 @@
+<h1><%= @category.name %></h1>
+
+<div>
+  <%= link_to 'Editar Categoria', edit_category_path(@category) %>
+</div>
+
 <h1>Prestadores de Serviço</h1>
 <ul>
   <% @contractors.each do |contractor| %>

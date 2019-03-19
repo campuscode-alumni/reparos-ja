@@ -4,7 +4,7 @@ feature 'visitor create user account' do
 
   scenario 'from home page successfully' do
     visit root_path
-    click_on 'Sign up as User'
+    click_on 'Cadastrar-se como Usuário'
 
     fill_in('Name', with: 'Teste User')
     fill_in('Email', with: 'email@teste.com')
@@ -19,7 +19,7 @@ feature 'visitor create user account' do
 
   scenario 'without fill in name' do
     visit root_path
-    click_on 'Sign up as User'
+    click_on 'Cadastrar-se como Usuário'
 
     fill_in('Name', with: '')
     fill_in('Email', with: 'email@teste.com')
