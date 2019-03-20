@@ -1,9 +1,5 @@
-<h1>#<%= "#{@estimate.id} - #{@estimate.title}" %></h1>
-<p>Descrição: <%= @estimate.description %></p>
-<p>Local: <%= @estimate.location %></p>
-<p>Data: <%= @estimate.service_date %></p>
-<p>Turno: <%= @estimate.day_shift %></p>
-<span>Enviado para: <%= @estimate.contractor.name %></span>
-<span>Solicitado por: <%= @estimate.user.name %></span>
-
+<%= render @estimate %>
+<% if contractor_signed_in?%>
+  <%= link_to 'Responder Orçamento', edit_estimate_path %>
+<% end %>
 

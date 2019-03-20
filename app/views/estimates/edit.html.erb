@@ -1,0 +1,15 @@
+<%= render @estimate %>
+
+<%= form_for(@estimate) do |f| %>
+  <%= f.label :total_hours, 'Tempo de Execução' %>
+  <%= f.number_field :total_hours %>
+  <%= f.label :material_fee, 'Custo do Material' %>
+  <%= f.number_field :material_fee, step: 0.5 %>
+  <%= f.label :visit_fee, 'Taxa de Visita' %>
+  <%= f.number_field :visit_fee, step: 0.5 %>
+  <%= f.label :service_fee, 'Custo do Serviço' %>
+  <%= f.number_field :service_fee, step: 0.5 %>
+  <%= f.label :material_list, 'Lista de Materiais' %>
+  <%= f.text_area :material_list %>
+  <%= f.submit 'Enviar Orçamento' %>
+<% end %>

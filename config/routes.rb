@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :estimates, only: [:index, :show, :new, :create]
+  resources :estimates, only: [:index, :show, :new, :create, :edit, :update]
   
 end
