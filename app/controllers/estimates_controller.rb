@@ -12,6 +12,7 @@ class EstimatesController < ApplicationController
     @estimate.user = current_user
     if @estimate.save
       flash[:message] = 'Sua solicitação foi enviada - Aguarde retorno do prestador de serviços'
+      ContractorsMailer.notify_new_estimate(@contractor.id, @estimate.id)
       redirect_to @contractor
     else
       render :new
