@@ -15,6 +15,7 @@ class EstimatesController < ApplicationController
     @estimate = @contractor.estimates.build(estimate_params)
     @estimate.user = current_user
     if @estimate.save
+      @estimate.requested!
       flash[:message] = 'Sua solicitação foi enviada - Aguarde retorno do prestador de serviços'
       ContractorsMailer.notify_new_estimate(@contractor.id, @estimate.id)
       redirect_to @contractor
@@ -34,10 +35,19 @@ class EstimatesController < ApplicationController
   def update
     @estimate = Estimate.find(params[:id])
     parameters = contractor_params if current_contractor
+    @estimate.approved_contractor!
     if @estimate.update(parameters)
       EstimatesMailer.notify_estimate_response(@estimate.id)
       redirect_to @estimate
     end
+  end
+  
+  def approve
+    @estimate = Estimate.find(params[:id])
+    @estimate.approved_user!
+    @estimate.save
+    flash[:approved_user] = t(:estimate_approved_by_user)
+    redirect_to @estimate
   end
 
   private

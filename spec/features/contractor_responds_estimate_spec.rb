@@ -64,6 +64,8 @@ feature 'contractor will be responds estimate' do
     expect(page).to have_css('span', text: 'R$ 300,00')
     expect(page).to have_css('span', text: 'Chuveiro, fio, fita isolante, veda rosca')
     expect(page).to have_css('span', text: 'Aguardando aprovação')
+    expect(Estimate.last.approved_contractor?).to be true
+    #expect(Estimate.last).to be_approved_contractor
   end
 
   scenario 'send mail estimate response' do

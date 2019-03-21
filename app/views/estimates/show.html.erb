@@ -3,3 +3,10 @@
   <%= link_to 'Responder Orçamento', edit_estimate_path %>
 <% end %>
 
+<% if user_signed_in? %>
+  <%= flash[:approved_user] %>
+  <% if @estimate.approved_contractor? %>
+    <%= link_to 'Aprovar Orçamento', approve_estimate_path, method: :post %>
+  <% end %>
+<% end %>
+

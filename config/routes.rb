@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
 
   resources :categories do
-
     resources :contractors, only: [:index]
   end
 
@@ -15,6 +14,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :estimates, only: [:index, :show, :edit, :update]
+  resources :estimates, only: [:index, :show, :edit, :update] do
+    member do
+      post :approve
+    end
+  end
   
 end

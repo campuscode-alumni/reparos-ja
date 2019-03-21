@@ -16,4 +16,8 @@ FactoryBot.define do
     service_fee {'150.00'}
     material_list {'Chuveiro, fio, fita isolante, veda rosca'} 
   end
+
+  trait :approved_by_contractor do
+    status {:approved_contractor}
+  end
 end

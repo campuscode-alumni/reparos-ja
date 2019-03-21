@@ -22,6 +22,7 @@ feature 'User request estimate' do
     expect(current_path).to eq(contractor_path(contractor))
     expect(page).to have_content('Sua solicitação foi enviada')
     expect(page).to have_content('Aguarde retorno do prestador de serviços')
+    expect(Estimate.last.status).to eq('requested')
   end
 
   scenario 'and leave blank fields' do

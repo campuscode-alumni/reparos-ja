@@ -1,4 +1,6 @@
 class Estimate < ApplicationRecord
+  enum status: [:requested, :approved_contractor, :approved_user, :rejected_user ]
+  
   belongs_to :contractor
   belongs_to :user
 

@@ -3,3 +3,5 @@ pt-BR:
   afternoon: 'Tarde'
   evening: 'Noite'
   submit_estimate: 'Enviar solicitação'
+
+  estimate_approved_by_user: 'Orçamento aprovado, aguarde contato do prestador'
