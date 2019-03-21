@@ -3,17 +3,17 @@
 <p>Local: <%= estimate.location %></p>
 <p>Data: <%= estimate.service_date %></p>
 <p>Turno: <%= estimate.day_shift %></p>
-<span>Enviado para: <%= estimate.contractor.name %></span>
-<span>Solicitado por: <%= estimate.user.name %></span>
+<p>Enviado para: <%= estimate.contractor.name %></p>
+<p>Solicitado por: <%= estimate.user.name %></p>
 
 <h2> Orçamento </h2> 
-<span>Status: Aguardando aprovação</span>
-<span>Tempo de Execução: <%= "#{estimate.total_hours} horas" %></span>
-<span>Custo do Material: <%= number_to_currency(estimate.material_fee) %></span>
-<span>Taxa de Visita: <%= number_to_currency(estimate.visit_fee) %></span>
-<span>Custo do Serviço: <%= number_to_currency(estimate.service_fee) %></span>
-<span>Lista de Materiais: <%= estimate.material_list %></span>
-<span>Valor Total: <%= number_to_currency(estimate.total_fee) %></span>
+<p>Status: Aguardando aprovação</p>
+<p>Tempo de Execução: <%= "#{estimate.total_hours} horas" %></p>
+<p>Custo do Material: <%= number_to_currency(estimate.material_fee) %></p>
+<p>Taxa de Visita: <%= number_to_currency(estimate.visit_fee) %></p>
+<p>Custo do Serviço: <%= number_to_currency(estimate.service_fee) %></p>
+<p>Lista de Materiais: <%= estimate.material_list %></p>
+<p>Valor Total: <%= number_to_currency(estimate.total_fee) %></p>
 
 
 
