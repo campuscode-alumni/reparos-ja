@@ -1,7 +1,15 @@
 <h1> Categorias </h1>
+
+<% if flash[:message] %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
 <p><%= link_to 'Nova Categoria', new_category_path %></p>
 <ul>
-  <%= @categories.each do |category| %>
-    <li> <%= link_to category.name, category_contractors_path(category) %></li>
-  <% end %>
+ <%= @categories.each do |category| %>
+    <li> 
+    <%= link_to category.name, category_contractors_path(category) %>
+</li> 
+<% end %>
 </ul>
+

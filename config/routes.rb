@@ -3,14 +3,18 @@ Rails.application.routes.draw do
   devise_for :contractors
   root to: 'home#index'
 
-  resources :categories, only: [:index, :edit, :update, :new, :create, :show] do
+
+  resources :categories do
+
     resources :contractors, only: [:index]
   end
 
-  resources :contractors, only: [:show, :edit, :update]
+  resources :contractors, only: [:show, :edit, :update] do
+    resources :estimates, only: [:new, :create]
+  end
 
   resources :users, only: [:show]
 
-  resources :estimates, only: [:index, :show, :new, :create, :edit, :update]
+  resources :estimates, only: [:index, :show, :edit, :update]
   
 end

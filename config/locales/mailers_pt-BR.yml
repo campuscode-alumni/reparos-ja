@@ -1,0 +1,6 @@
+pt-BR:
+  notify_new_estimate:
+    user_request_service: "O usuário %{name} deseja que você realize o seguinte serviço:"
+    location: "Local: %{location}"
+    date: "Data: %{service_date}"
+    shift: "Turno: %{day_shift}"
