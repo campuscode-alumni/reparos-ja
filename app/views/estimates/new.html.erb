@@ -4,15 +4,15 @@
 
 
 <%= form_for([@contractor, @estimate]) do |f| %>
-  <%= f.label :description, 'Descrição do serviço' %>
+  <%= f.label :description %>
   <%= f.text_area :description %>
-  <%= f.label :location, 'Local' %>
+  <%= f.label :location %>
   <%= f.text_field :location %>
-  <%= f.label :service_date, 'Data' %>
+  <%= f.label :service_date %>
   <%= f.text_field :service_date %>
-  <%= f.label :day_shift, 'Turno' %>
-  <%= f.select :day_shift, options_for_select([['Manhã'], ['Tarde'], ['Noite']]) %>
-  <%= f.label :photo, 'Foto' %>
+  <%= f.label :day_shift %>
+  <%= f.select :day_shift, options_for_select([[t(:morning)], [t(:afternoon)], [t(:evening)]]) %>
+  <%= f.label :photo %>
   <%= f.file_field :photo %>
-  <%= f.submit 'Enviar solicitação' %>
+  <%= f.submit t(:submit_estimate) %>
 <% end %>

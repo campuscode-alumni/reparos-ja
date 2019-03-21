@@ -1,0 +1,12 @@
+pt-BR:
+   activerecord:
+    models:
+      estimate: 'Orçamento'
+    attributes:
+      estimate: 
+        description: 'Descrição do serviço'
+        location: 'Local'
+        service_date: 'Data'
+        day_shift: 'Turno'
+        photo: 'Foto'
+        

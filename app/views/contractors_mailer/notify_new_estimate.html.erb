@@ -1,9 +1,9 @@
-<h2><%= "O usuário #{@estimate.user.name} deseja que você realize o seguinte serviço: " %></h2>
+<h2><%= t('notify_new_estimate.user_request_service', name: @estimate.user.name) %></h2>
 
 <p><%= @estimate.description %></p>
 
-<p><%= "Local: #{@estimate.location}" %></p>
+<p><%= t('notify_new_estimate.location', location: @estimate.location) %></p>
 
-<p><%= "Data: #{@estimate.service_date}" %></p>
+<p><%= t('notify_new_estimate.date', service_date: @estimate.service_date) %></p>
 
-<p><%= "Turno: #{@estimate.day_shift}" %></p>
+<p><%= t('notify_new_estimate.shift', day_shift: @estimate.day_shift) %></p>

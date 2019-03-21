@@ -12,7 +12,7 @@ feature 'visitor create user account' do
     fill_in('Confirmation Password', with: '123456')
     click_on 'Sign up'
 
-    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Bem vindo! Você realizou seu registro com sucesso.')
     expect(current_path).to eq(root_path)
     expect(User.count).to eq(1)
   end

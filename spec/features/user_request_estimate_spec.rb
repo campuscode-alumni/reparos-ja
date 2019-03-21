@@ -11,7 +11,7 @@ feature 'User request estimate' do
     visit root_path
     click_on 'Dionisio'
     click_on 'Solicitar orçamento'
-
+    
     fill_in 'Descrição do serviço', with: 'Preciso trocar meu telhado'
     fill_in 'Local', with: 'Alameda Santos, 1293'
     fill_in 'Data', with: '15/03/2019'
