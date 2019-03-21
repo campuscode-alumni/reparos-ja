@@ -20,6 +20,7 @@ class EstimatesController < ApplicationController
     @estimate = Estimate.find(params[:id])
     parameters = contractor_params if current_contractor
     if @estimate.update(parameters)
+      EstimatesMailer.notify_estimate_response(@estimate.id)
       redirect_to @estimate
     end
   end

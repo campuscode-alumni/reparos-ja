@@ -1,0 +1,8 @@
+<h2> Orçamento </h2> 
+Status: Aguardando aprovação
+Tempo de Execução: <%= t("hours", count: @estimate.total_hours) %>
+Custo do Material: <%= number_to_currency(@estimate.material_fee) %>
+Taxa de Visita: <%= number_to_currency(@estimate.visit_fee) %>
+Custo do Serviço: <%= number_to_currency(@estimate.service_fee) %>
+Lista de Materiais: <%= @estimate.material_list %>
+Valor Total: <%= number_to_currency(@estimate.total_fee) %>

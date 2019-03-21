@@ -1,0 +1,8 @@
+pt-BR:
+  hours:
+    one: '1 hora'
+    other: '%{count} horas'
+  activerecord:
+    models: 
+      estimate: Orçamento
+                

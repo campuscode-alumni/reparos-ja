@@ -66,4 +66,25 @@ feature 'contractor will be responds estimate' do
     expect(page).to have_css('span', text: 'Aguardando aprovação')
   end
 
+  scenario 'send mail estimate response' do
+    title = 'Instalação de Chuveiro'
+    contractor = create(:contractor)
+    user = create(:user)
+    estimate = create(:estimate, title: title, contractor: contractor, user: user)
+    login_as contractor, scope: :contractor
+    mailer_spy = class_spy(EstimatesMailer)
+    stub_const('EstimatesMailer', mailer_spy)
+
+    visit edit_estimate_path(estimate)
+
+    fill_in 'Tempo de Execução', with: '2'
+    fill_in 'Custo do Material',  with: '100,00'
+    fill_in 'Taxa de Visita',  with: '50,00'
+    fill_in 'Custo do Serviço',  with: '150,00'
+    fill_in 'Lista de Materiais', with: 'Chuveiro, fio, fita isolante, veda rosca'
+    click_on 'Enviar Orçamento'
+
+    expect(EstimatesMailer).to have_received(:notify_estimate_response).with(estimate.id)
+  end
+
 end
