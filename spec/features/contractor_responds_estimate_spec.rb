@@ -33,8 +33,8 @@ feature 'contractor will be responds estimate' do
     expect(page).to have_css('p', text: "Local: #{estimate.location}")
     expect(page).to have_css('p', text: "Data: #{estimate.service_date}")
     expect(page).to have_css('p', text: "Turno: #{estimate.day_shift}")
-    expect(page).to have_css('span', text: "Enviado para: #{estimate.contractor.name}")
-    expect(page).to have_css('span', text: "Solicitado por: #{estimate.user.name}")
+    expect(page).to have_css('p', text: "Enviado para: #{estimate.contractor.name}")
+    expect(page).to have_css('p', text: "Solicitado por: #{estimate.user.name}")
   end
 
   scenario 'clik on button respond estimate' do
@@ -57,15 +57,13 @@ feature 'contractor will be responds estimate' do
     click_on 'Enviar Orçamento'
     
     expect(page).to have_css('h1', text: "##{estimate.id} - #{title}")
-    expect(page).to have_css('span', text: '2 horas')
-    expect(page).to have_css('span', text: 'R$ 100,00')
-    expect(page).to have_css('span', text: 'R$ 50,00')
-    expect(page).to have_css('span', text: 'R$ 150,00')
-    expect(page).to have_css('span', text: 'R$ 300,00')
-    expect(page).to have_css('span', text: 'Chuveiro, fio, fita isolante, veda rosca')
-    expect(page).to have_css('span', text: 'Aguardando aprovação do usuário')
-    expect(Estimate.last.approved_contractor?).to be true
-    #expect(Estimate.last).to be_approved_contractor
+    expect(page).to have_css('p', text: '2 horas')
+    expect(page).to have_css('p', text: 'R$ 100,00')
+    expect(page).to have_css('p', text: 'R$ 50,00')
+    expect(page).to have_css('p', text: 'R$ 150,00')
+    expect(page).to have_css('p', text: 'R$ 300,00')
+    expect(page).to have_css('p', text: 'Chuveiro, fio, fita isolante, veda rosca')
+    expect(page).to have_css('p', text: 'Aguardando aprovação')
   end
 
   scenario 'send mail estimate response' do
