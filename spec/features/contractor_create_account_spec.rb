@@ -8,12 +8,12 @@ feature 'Contractor create account' do
     click_on 'Cadastrar-se como Prestador'
 
     fill_in 'Nome', with: 'João'
-    fill_in 'E-mail', with: 'joao@campuscode.com.br'
+    fill_in 'Email', with: 'joao@campuscode.com.br'
     fill_in 'Senha', with: 'Joao123'
-    fill_in 'Confirmar Senha', with: 'Joao123'
+    fill_in 'Confirme sua senha', with: 'Joao123'
     fill_in 'CPF', with: '12345678909'
     select 'Pedreiro', from: 'Categoria' 
-    click_on 'Enviar'
+    click_on 'Criar Prestador'
 
     expect(page).to have_content('Bem-Vindo João!')
     expect(page).to have_content('Logado como: joao@campuscode.com.br')
@@ -28,11 +28,11 @@ feature 'Contractor create account' do
     click_on 'Cadastrar-se como Prestador'
 
     fill_in 'Nome', with: ''
-    fill_in 'E-mail', with: ''
+    fill_in 'Email', with: ''
     fill_in 'Senha', with: ''
-    fill_in 'Confirmar Senha', with: ''
+    fill_in 'Confirme sua senha', with: ''
     fill_in 'CPF', with: ''
-    click_on 'Enviar'
+    click_on 'Criar Prestador'
 
     expect(page).to have_content('Não foi possível criar a conta')
   end

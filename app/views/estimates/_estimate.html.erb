@@ -7,14 +7,12 @@
 <span>Solicitado por: <%= estimate.user.name %></span>
 
 <h2> Orçamento </h2> 
-<span>Status: Aguardando aprovação</span>
+<% if estimate.approved_contractor? %>
+  <span>Status: Aguardando aprovação do usuário</span>
+<% end %>
 <span>Tempo de Execução: <%= "#{estimate.total_hours} horas" %></span>
 <span>Custo do Material: <%= number_to_currency(estimate.material_fee) %></span>
 <span>Taxa de Visita: <%= number_to_currency(estimate.visit_fee) %></span>
 <span>Custo do Serviço: <%= number_to_currency(estimate.service_fee) %></span>
 <span>Lista de Materiais: <%= estimate.material_list %></span>
 <span>Valor Total: <%= number_to_currency(estimate.total_fee) %></span>
-
-
-
-

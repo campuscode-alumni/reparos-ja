@@ -16,6 +16,18 @@ feature 'User approves estimate' do
     estimate.reload
     expect(estimate.status).to eq('approved_user')
   end
-  
+
+  scenario 'and does not view link' do
+    estimate = create(:estimate, :with_response, :approved_by_contractor)
+    estimate.approved_user!
+    login_as(estimate.user, scope: :user)
+
+    visit root_path
+    click_on 'Meus Orçamentos'
+    click_on estimate.title
+
+    expect(page).not_to have_link 'Aprovar Orçamento'
+  end
+
 
 end
