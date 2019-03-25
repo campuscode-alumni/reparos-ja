@@ -4,27 +4,37 @@
     <title>ReparosJa</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-      <nav>
-        <ul>
-          <% if ! contractor_signed_in? && ! user_signed_in? %>
-            <li><%= link_to 'Cadastrar-se como Usuário', new_user_registration_path %></li>
-          <% else %>
-            <li><%= link_to 'Meu Perfil', current_user || current_contractor %></li>
-            <li><%= link_to 'Meus Orçamentos', estimates_path %></li>
-          <% end %>
-
-        </ul>
-      </nav>
-    </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container">
+      <header>
+        <nav class='navbar'>
+          <%= link_to 'Reparos Já', root_path, class: 'navbar-brand' %>
+          <ul class='navbar-nav'>
+            <% if ! contractor_signed_in? && ! user_signed_in? %>
+              <li class='nav-item'><%= link_to 'Cadastrar-se como Usuário', new_user_registration_path %></li>
+            <% else %>
+              <li class='nav-item'><%= link_to 'Meu Perfil', current_user || current_contractor %></li>
+              <li class='nav-item'><%= link_to 'Meus Orçamentos', estimates_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </header>
+      <% if notice %>
+        <div class="alert alert-success" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger" role="alert">
+          <%= alert %>
+        </div>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
