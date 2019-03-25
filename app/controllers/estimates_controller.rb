@@ -26,6 +26,9 @@ class EstimatesController < ApplicationController
 
   def show
     @estimate = Estimate.find(params[:id])
+    if contractor_signed_in? && @estimate.contractor != current_contractor
+      redirect_to root_path
+    end
   end
 
   def edit

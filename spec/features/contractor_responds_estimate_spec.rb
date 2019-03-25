@@ -37,11 +37,11 @@ feature 'contractor will be responds estimate' do
     expect(page).to have_css('p', text: "Solicitado por: #{estimate.user.name}")
   end
 
-  scenario 'clik on button respond estimate' do
+  scenario 'by clicking on button to respond estimate' do
     title = 'Instalação de Chuveiro'
     contractor = create(:contractor)
     user = create(:user)
-    estimate = create(:estimate, title: title, contractor: contractor, user: user)
+    estimate = create(:estimate, :requested_by_user, title: title, contractor: contractor, user: user)
     login_as contractor, scope: :contractor
 
     visit root_path

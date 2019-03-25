@@ -2,13 +2,13 @@ require 'rails_helper'
 
 feature 'User view estimate' do
   scenario 'before contractor response' do
-    estimate = create(:estimate, :with_response, :requested_by_user)
+    estimate = create(:estimate, :requested_by_user)
     login_as(estimate.user, scope: :user)
 
     visit root_path
     click_on 'Meus Orçamentos'
     click_on estimate.title
-
+    
     expect(page).to have_css('p', text: 'Status: Solicitado pelo Usuário')
     expect(page).not_to have_css('p', text: 'Status: Aguardando aprovação do usuário')
     expect(page).not_to have_content('Tempo de Execução:')

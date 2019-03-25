@@ -1,7 +1,9 @@
 <%= render @estimate %>
 
-<% if contractor_signed_in?%>
-  <%= link_to 'Responder Orçamento', edit_estimate_path %>
+<% if contractor_signed_in? %>
+  <% if @estimate.requested? %>
+    <%= link_to 'Responder Orçamento', edit_estimate_path %>
+  <% end %>
 <% end %>
 
 <% if user_signed_in? %>

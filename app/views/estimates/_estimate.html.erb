@@ -7,7 +7,7 @@
 <p>Solicitado por: <%= estimate.user.name %></p>
 
 <h2> Orçamento </h2> 
-<% if estimate.requested?%>
+<% if estimate.requested? %>
   <p>Status: Solicitado pelo Usuário</p>
 <% end %>
 <% if estimate.approved_contractor? %>

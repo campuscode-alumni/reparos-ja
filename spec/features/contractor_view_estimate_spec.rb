@@ -19,11 +19,11 @@ feature 'Contractor view estimate' do
     expect(page).to have_css('p', text: "Enviado para: #{estimate.contractor.name}")
     expect(page).to have_css('p', text: "Solicitado por: #{estimate.user.name}")
     expect(page).to have_css('p', text: "Tempo de Execução: #{estimate.total_hours} horas")
-    expect(page).to have_css('p', text: "Custo do Material: #{number_to_currency(estimate.material_fee)}")
-    expect(page).to have_css('p', text: "Taxa de Visita: #{number_to_currency(estimate.visit_fee)}")
-    expect(page).to have_css('p', text: "Custo do Serviço: #{number_to_currency(estimate.service_fee)}")
-    expect(page).to have_css('p', text: "Lista de Materiais: #{estimate.material_list}")
-    expect(page).to have_css('p', text: "Valor Total: #{number_to_currency(estimate.total_fee)}")
+    expect(page).to have_css('p', text: "Custo do Material: ")
+    expect(page).to have_css('p', text: "Taxa de Visita: ")
+    expect(page).to have_css('p', text: "Custo do Serviço: ")
+    expect(page).to have_css('p', text: "Lista de Materiais: ")
+    expect(page).to have_css('p', text: "Valor Total: ")
   end
 
   scenario 'not yet sent to the user' do
