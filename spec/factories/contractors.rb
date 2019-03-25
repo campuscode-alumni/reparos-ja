@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :contractor do
     name { 'João' }
-    email { 'mail@teste.com' }
+    sequence(:email) {|i| "contractor#{i}@email.com" }
     category
     cpf { '1234567890' }
     password { '123456' }

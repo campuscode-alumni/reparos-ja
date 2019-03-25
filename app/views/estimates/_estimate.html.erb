@@ -1,4 +1,4 @@
-<h1>#<%= "#{estimate.id} - #{estimate.title}" %></h1>
+<h1><%= "##{estimate.id} - #{estimate.title}" %></h1>
 <p>Descrição: <%= estimate.description %></p>
 <p>Local: <%= estimate.location %></p>
 <p>Data: <%= estimate.service_date %></p>
@@ -7,14 +7,16 @@
 <p>Solicitado por: <%= estimate.user.name %></p>
 
 <h2> Orçamento </h2> 
-<p>Status: Aguardando aprovação</p>
-<p>Tempo de Execução: <%= "#{estimate.total_hours} horas" %></p>
-<p>Custo do Material: <%= number_to_currency(estimate.material_fee) %></p>
-<p>Taxa de Visita: <%= number_to_currency(estimate.visit_fee) %></p>
-<p>Custo do Serviço: <%= number_to_currency(estimate.service_fee) %></p>
-<p>Lista de Materiais: <%= estimate.material_list %></p>
-<p>Valor Total: <%= number_to_currency(estimate.total_fee) %></p>
-
-
-
+<% if estimate.requested? %>
+  <p>Status: Solicitado pelo Usuário</p>
+<% end %>
+<% if estimate.approved_contractor? %>
+  <p>Status: Aguardando aprovação do usuário</p>
+  <p>Tempo de Execução: <%= "#{estimate.total_hours} horas" %></p>
+  <p>Custo do Material: <%= number_to_currency(estimate.material_fee) %></p>
+  <p>Taxa de Visita: <%= number_to_currency(estimate.visit_fee) %></p>
+  <p>Custo do Serviço: <%= number_to_currency(estimate.service_fee) %></p>
+  <p>Lista de Materiais: <%= estimate.material_list %></p>
+  <p>Valor Total: <%= number_to_currency(estimate.total_fee) %></p>
+<% end %>
 

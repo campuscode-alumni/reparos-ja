@@ -2,6 +2,7 @@ pt-BR:
   morning: 'Manhã'
   afternoon: 'Tarde'
   evening: 'Noite'
-  submit_estimate: 'Enviar solicitação'
   characters_minimum: caracteres no mínimo
   sign_up: Registrar-se
+  submit_estimate: 'Enviar solicitação'
+  estimate_approved_by_user: 'Orçamento aprovado, aguarde contato do prestador'

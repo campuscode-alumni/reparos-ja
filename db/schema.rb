@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_20_001450) do
+ActiveRecord::Schema.define(version: 2019_03_21_221946) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_03_20_001450) do
     t.decimal "material_fee"
     t.decimal "service_fee"
     t.text "material_list"
+    t.integer "status"
     t.index ["contractor_id"], name: "index_estimates_on_contractor_id"
     t.index ["user_id"], name: "index_estimates_on_user_id"
   end
