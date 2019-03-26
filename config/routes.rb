@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :contractors, only: [:index]
   end
 
-  resources :contractors, only: [:show, :edit, :update] do
+  resources :contractors, only: [:show, :update] do
     resources :estimates, only: [:new, :create]
   end
 
@@ -19,5 +19,5 @@ Rails.application.routes.draw do
       post :approve
     end
   end
-  
+  get 'edit_profile', to: 'contractors#edit'
 end
