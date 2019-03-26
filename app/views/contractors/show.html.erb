@@ -8,3 +8,9 @@
 
 <%= link_to 'Atualizar Perfil', edit_contractor_path(@contractor) %>
 
+<%= @contractor.name %>
+<%= @contractor.cpf %>
+<%= @contractor.profile&.city %>
+<%= @contractor.profile.sub_categories.each do |sub_category| %>
+  <%= sub_category.name %>
+<% end %>

@@ -12,5 +12,12 @@
     <%= f.text_field :name %> <br />
   <%= f.label :email, 'E-mail: ' %>
     <%= f.text_field :email %> <br />
+  <%= f.label :cpf, 'CPF: ' %>
+    <%= f.text_field :cpf %> <br />
+    <%= f.fields_for :profile do |profile_form| %>
+      <%= profile_form.label :city, 'Cidade: ' %>
+        <%= profile_form.text_field :city %> <br />
+      <%= profile_form.collection_check_boxes(:sub_category_ids, @contractor.category.sub_categories, :id, :name) %>  <br />
+    <% end %>
   <%= f.submit 'Atualizar' %>
 <% end %>

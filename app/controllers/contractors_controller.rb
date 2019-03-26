@@ -10,18 +10,26 @@ class ContractorsController < ApplicationController
 
   def edit
     @contractor = Contractor.find(params[:id])
+    @contractor.profile ||= @contractor.build_profile
   end
 
   def update
     @contractor = Contractor.find(params[:id])
     if @contractor.update(contractor_params)
-      redirect_to root_path
+      @contractor.profile.sub_categories = sub_category_params
+      redirect_to current_user || current_contractor
     else
       render :edit
     end
   end
 
+  private
+
+  def sub_category_params
+    SubCategory.where(id: params[:contractor][:profile_attributes][:sub_category_ids])
+  end
+
   def contractor_params
-    params.require(:contractor).permit(:name, :email)
+    params.require(:contractor).permit(:name, :email, profile_attributes: [:id, :city])
   end
 end

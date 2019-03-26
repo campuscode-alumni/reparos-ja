@@ -43,4 +43,52 @@ feature 'Contractor will be update account' do
 
     expect(page).to have_content('Não foi possível atualizar a conta')
   end
+
+  scenario 'with a new city' do
+    city = 'São Caetano do Sul'
+    contractor = create(:contractor)
+    login_as contractor, scope: :contractor
+
+    visit root_path
+    click_on 'Meu Perfil'
+    click_on 'Atualizar Perfil'
+    fill_in 'Cidade', with: city
+    click_on 'Atualizar'
+
+    expect(page).to have_content(city)
+  end
+
+  scenario 'with a new cpf' do
+    # pending!
+    cpf = '123.456.789-00'
+    contractor = create(:contractor)
+    login_as contractor, scope: :contractor
+
+    visit root_path
+    click_on 'Meu Perfil'
+    click_on 'Atualizar Perfil'
+    fill_in 'CPF', with: cpf
+    click_on 'Atualizar'
+
+    expect(page).to have_content(city)
+  end
+
+  scenario 'with a new sub categories' do
+    category = create(:category)
+    contractor = create(:contractor, category: category)
+    profile = create(:profile, contractor: contractor)
+    create(:sub_category, name: 'Arrumar chuveiro', category: category)
+    create(:sub_category, name: 'Arrumar tomada', category: category)
+    create(:sub_category, name: 'Ar condicionado', category: category)
+    login_as contractor, scope: :contractor
+
+    visit root_path
+    click_on 'Meu Perfil'
+    click_on 'Atualizar Perfil'
+    check 'Arrumar chuveiro'
+    check 'Arrumar tomada'
+    click_on 'Atualizar'
+
+    expect(page).to have_content('Arrumar chuveiro')
+  end
 end

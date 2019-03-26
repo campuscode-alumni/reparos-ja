@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_21_221946) do
+ActiveRecord::Schema.define(version: 2019_03_26_003906) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -73,6 +73,31 @@ ActiveRecord::Schema.define(version: 2019_03_21_221946) do
     t.integer "status"
     t.index ["contractor_id"], name: "index_estimates_on_contractor_id"
     t.index ["user_id"], name: "index_estimates_on_user_id"
+  end
+
+  create_table "profile_sub_categories", force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "sub_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_profile_sub_categories_on_profile_id"
+    t.index ["sub_category_id"], name: "index_profile_sub_categories_on_sub_category_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "contractor_id"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contractor_id"], name: "index_profiles_on_contractor_id"
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|

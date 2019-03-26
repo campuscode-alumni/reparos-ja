@@ -17,6 +17,8 @@
             <% if ! contractor_signed_in? && ! user_signed_in? %>
               <li class='nav-item'><%= link_to 'Cadastrar-se como Usuário', new_user_registration_path %></li>
             <% else %>
+              <li> Logado como: <%= current_contractor.email || current_user.email %> </li>
+              <li> Bem vindo <%= current_contractor.name || current_user.name %> </li>
               <li class='nav-item'><%= link_to 'Meu Perfil', current_user || current_contractor %></li>
               <li class='nav-item'><%= link_to 'Meus Orçamentos', estimates_path %></li>
             <% end %>
