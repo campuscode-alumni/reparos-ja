@@ -2,6 +2,14 @@
   <p><%= flash[:message] %></p>
 <% end %>
 
+<%= @contractor.name %>
+<%= @contractor.cpf %>
+<%= @contractor&.profile&.city %>
+
+<% @contractor.profile.sub_categories.each do |sub_category| %>
+  <p><%= sub_category.name %></p>
+<% end %>
+
 <% if user_signed_in? %>
   <%= link_to 'Solicitar orçamento', new_contractor_estimate_path(@contractor) %>
 <% end %>

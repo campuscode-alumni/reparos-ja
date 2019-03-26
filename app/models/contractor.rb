@@ -7,4 +7,10 @@ class Contractor < ApplicationRecord
 
   validates :name, :cpf, :category_id, presence: true
 
+  has_one :profile
+  accepts_nested_attributes_for :profile
+
+  before_create do
+    build_profile
+  end
 end
