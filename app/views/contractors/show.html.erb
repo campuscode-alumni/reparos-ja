@@ -6,5 +6,11 @@
   <%= link_to 'Solicitar orçamento', new_contractor_estimate_path(@contractor) %>
 <% end %>
 
+<p><%= @contractor.name %></p>
+<p><%= @contractor.profile.city %></p>
+
+
 <%= link_to 'Atualizar Perfil', edit_contractor_path(@contractor) %>
+
+
 

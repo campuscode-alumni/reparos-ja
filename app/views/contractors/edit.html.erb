@@ -9,8 +9,12 @@
 
 <%= form_for @contractor do |f| %>
   <%= f.label :name, 'Nome: ' %>
-    <%= f.text_field :name %> <br />
+  <%= f.text_field :name %> <br />
   <%= f.label :email, 'E-mail: ' %>
-    <%= f.text_field :email %> <br />
+  <%= f.text_field :email %> <br />
+  <%= f.fields_for :profile do |p| %>
+    <%= p.label :city, 'Cidade:'%>
+    <%= p.text_field :city %>
+  <% end %>
   <%= f.submit 'Atualizar' %>
 <% end %>
