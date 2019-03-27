@@ -3,6 +3,7 @@ pt-BR:
     models:
       estimate: 'Orçamento'
       contractor: 'Prestador'
+      user_review: Avaliação do Usuário
     attributes:
       estimate: 
         description: 'Descrição do serviço'
@@ -37,4 +38,7 @@ pt-BR:
         unconfirmed_email: E-mail não confirmado
         unlock_token: Token de desbloqueio
         updated_at: Atualizado em
+      user_review:
+        rating: Nota
+        comment: Comentário
         

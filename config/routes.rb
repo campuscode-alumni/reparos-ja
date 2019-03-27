@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     resources :estimates, only: [:new, :create]
   end
 
+  resources :service_orders, only: [:show] do
+    resources :user_reviews, only: [:new, :create]
+  end
+
   resources :users, only: [:show]
 
   resources :estimates, only: [:index, :show, :edit, :update] do

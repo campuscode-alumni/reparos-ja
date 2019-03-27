@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_003628) do
+ActiveRecord::Schema.define(version: 2019_03_26_234208) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -109,12 +109,31 @@ ActiveRecord::Schema.define(version: 2019_03_26_003628) do
     t.index ["contractor_id"], name: "index_profiles_on_contractor_id"
   end
 
+  create_table "service_orders", force: :cascade do |t|
+    t.integer "estimate_id"
+    t.date "service_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["estimate_id"], name: "index_service_orders_on_estimate_id"
+  end
+
   create_table "sub_categories", force: :cascade do |t|
     t.integer "category_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_sub_categories_on_category_id"
+  end
+
+  create_table "user_reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "service_order_id"
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_order_id"], name: "index_user_reviews_on_service_order_id"
+    t.index ["user_id"], name: "index_user_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
