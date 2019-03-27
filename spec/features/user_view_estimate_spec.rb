@@ -20,4 +20,14 @@ feature 'User view estimate' do
     expect(page).to have_css('p', text: "Enviado para: #{estimate.contractor.name}")
     expect(page).to have_css('p', text: "Solicitado por: #{estimate.user.name}")
   end
+
+  scenario 'only if estimate belongs to user itself' do
+    estimate = create(:estimate)
+    estimate2 = create(:estimate)
+    login_as(estimate.user, scope: :user)
+
+    visit estimate_path(estimate2)
+
+    expect(current_path).to eq(root_path)
+  end
 end
