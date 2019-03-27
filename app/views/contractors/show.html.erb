@@ -16,3 +16,10 @@
 
 <%= link_to 'Atualizar Perfil', edit_contractor_path(@contractor) %>
 
+<% @contractor.contractor_reviews.each do |review|  %>
+  <div>
+    <p><%= review.rating %></p>
+    <p><%= review.comment %></p>
+  </div>
+<% end %>
+

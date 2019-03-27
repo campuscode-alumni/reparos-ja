@@ -1,0 +1,7 @@
+<%= form_for([@service_order, @contractor_review]) do |f| %>
+  <%= f.label :comment, 'Comentário: ' %>
+  <%= f.text_field :comment %> <br />
+  <%= f.label :rating, 'Nota: ' %>
+  <%= f.text_field :rating %> <br />
+  <%= f.submit 'Enviar' %>
+<% end %>

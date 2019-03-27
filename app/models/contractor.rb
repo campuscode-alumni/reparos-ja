@@ -1,6 +1,8 @@
 class Contractor < ApplicationRecord
   belongs_to :category
   has_many :estimates
+  has_many :service_orders, through: :estimates
+  has_many :contractor_reviews, through: :service_orders
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
