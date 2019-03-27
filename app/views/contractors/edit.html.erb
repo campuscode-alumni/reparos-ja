@@ -10,6 +10,8 @@
 <%= form_for @contractor, url: contractor_path(@contractor), method: :patch do |f| %>
   <%= f.label :name, 'Nome: ' %>
   <%= f.text_field :name %> <br />
+  <%= f.label :email, 'E-mail: ' %>
+  <%= f.text_field :email %> <br />
   <%= f.label :cpf, 'CPF: ' %>
   <%= f.text_field :cpf %> <br />
   <%= f.fields_for :profile do |form_profile| %>

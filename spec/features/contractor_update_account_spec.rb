@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Contractor will be update account' do
-  xscenario 'with a new email' do
+  scenario 'with a new email' do
     primary_email = 'teste@outlook.com'
     second_email = 'teste@gmail.com'
     contractor = create(:contractor, email: primary_email)
@@ -13,7 +13,7 @@ feature 'Contractor will be update account' do
     fill_in 'E-mail', with: second_email
     click_on 'Atualizar'
 
-    expect(page).to have_content("Logado como: #{second_email}")
+    expect(page).to have_content("#{second_email}")
   end
 
   scenario 'with a new name' do
