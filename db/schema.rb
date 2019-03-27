@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_233842) do
+ActiveRecord::Schema.define(version: 2019_03_27_005340) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2019_03_26_233842) do
     t.datetime "remember_created_at"
     t.string "cpf"
     t.integer "category_id"
+    t.decimal "average"
     t.index ["category_id"], name: "index_contractors_on_category_id"
     t.index ["email"], name: "index_contractors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_contractors_on_reset_password_token", unique: true

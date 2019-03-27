@@ -15,4 +15,8 @@ class Contractor < ApplicationRecord
   before_create do
     build_profile
   end
+
+  def update_average
+    self.average = 0
+  end
 end
