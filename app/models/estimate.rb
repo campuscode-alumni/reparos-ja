@@ -15,4 +15,9 @@ class Estimate < ApplicationRecord
     end 
   end
 
+  def requested_by(user)
+    return false if user.nil?
+    return (self.user == user) ? true : false
+  end
+
 end

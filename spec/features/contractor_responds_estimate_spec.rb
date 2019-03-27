@@ -21,7 +21,6 @@ feature 'contractor will be responds estimate' do
     contractor = create(:contractor)
     user = create(:user)
     estimate = create(:estimate, title: title, contractor: contractor, user: user)
-    other_estimate = create(:estimate, title: other_title, contractor: contractor, user: user)
     login_as contractor, scope: :contractor
 
     visit root_path

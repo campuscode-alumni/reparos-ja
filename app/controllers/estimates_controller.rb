@@ -29,7 +29,7 @@ class EstimatesController < ApplicationController
     if contractor_signed_in? && @estimate.contractor != current_contractor
       redirect_to root_path
     end
-    if user_signed_in? && @estimate.user != current_user
+    if user_signed_in? && !@estimate.requested_by(current_user)
       redirect_to root_path
     end
   end
