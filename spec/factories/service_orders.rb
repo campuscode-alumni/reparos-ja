@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :service_order do
-    estimate { nil }
+    estimate
     service_date { "2019-03-26" }
   end
 end

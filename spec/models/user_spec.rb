@@ -5,7 +5,6 @@ RSpec.describe User, type: :model do
   describe '#update_average' do
     it 'should calculate with zero reviews' do
       user = create(:user)
-
       user.update_average
 
       expect(user.average_rating).to eq(0)
@@ -15,6 +14,7 @@ RSpec.describe User, type: :model do
       user = create(:user)
       create(:user_review, user: user, rating: 5)
       create(:user_review, user: user, rating: 2)
+      user.update_average
 
       expect(user.average_rating).to eq(3.5)
     end
@@ -26,6 +26,7 @@ RSpec.describe User, type: :model do
       create(:user_review, user: user, rating: 4)
       create(:user_review, user: user, rating: 4)
       create(:user_review, user: user, rating: 5)
+      user.update_average
 
       expect(user.average_rating).to eq(3.6)
     end

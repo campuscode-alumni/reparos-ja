@@ -10,6 +10,7 @@ class UserReviewsController < ApplicationController
     @user_review.user = @service_order.estimate.user
 
     if @user_review.save
+      @user_review.user.update_average
       redirect_to user_path(@user_review.user)
     end
   end

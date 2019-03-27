@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user_review do
-    user { nil }
-    service_order { nil }
+    user
+    service_order
     rating { 1 }
     comment { "MyText" }
   end

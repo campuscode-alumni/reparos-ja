@@ -10,15 +10,13 @@ class User < ApplicationRecord
   validates :name, presence: {message: 'É necessário informar um nome'}
 
   def update_average
-    ratings = 0
-    if self.user_reviews.count > 0
-      self.user_reviews.each do |review|
-        ratings += review.rating 
-      end
-      self.average_rating = ratings / self.user_reviews.count
-    else
-      self.average_rating = 0
-    end
-    self.save
+    self.update(average_rating: calculate_average)
+  end
+
+  private
+
+  def calculate_average
+    return 0 if self.user_reviews.count == 0
+    self.user_reviews.sum(:rating).to_f / self.user_reviews.count
   end
 end
