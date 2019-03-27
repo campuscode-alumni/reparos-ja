@@ -2,9 +2,10 @@
   <p><%= flash[:message] %></p>
 <% end %>
 
-<%= @contractor.name %>
-<%= @contractor.cpf %>
-<%= @contractor&.profile&.city %>
+<p><%= @contractor.name %></p>
+<p><%= @contractor.email %></p>
+<p><%= @contractor.cpf %></p>
+<p><%= @contractor&.profile&.city %></p>
 
 <% @contractor.profile.sub_categories.each do |sub_category| %>
   <p><%= sub_category.name %></p>
