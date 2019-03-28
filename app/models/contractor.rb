@@ -17,6 +17,12 @@ class Contractor < ApplicationRecord
   end
 
   def update_average
-    self.average = 0
+    self.average = contractor_reviews.any? ? calculate_average : 0
+  end
+
+  private
+
+  def calculate_average
+    (self.contractor_reviews.sum(:rating) / self.contractor_reviews.count).to_f
   end
 end

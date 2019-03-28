@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :contractor_review do
-    service_order { nil }
-    comment { "MyText" }
-    rating { 1 }
+    service_order
+    comment { "Muito bom!" }
+    rating { 4 }
   end
 end
