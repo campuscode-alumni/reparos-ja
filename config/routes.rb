@@ -23,4 +23,8 @@ Rails.application.routes.draw do
       post :approve
     end
   end
+  resources :service_orders, only: [:show] do
+    resources :contractor_reviews
+  end
+
 end

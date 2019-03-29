@@ -48,12 +48,13 @@ ActiveRecord::Schema.define(version: 2019_03_27_215210) do
     t.index ["sub_category_id"], name: "index_contractor_profile_sub_categories_on_sub_category_id"
   end
 
-  create_table "contractor_profiles", force: :cascade do |t|
-    t.integer "contractor_id"
-    t.string "city"
+  create_table "contractor_reviews", force: :cascade do |t|
+    t.integer "service_order_id"
+    t.text "comment"
+    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["contractor_id"], name: "index_contractor_profiles_on_contractor_id"
+    t.index ["service_order_id"], name: "index_contractor_reviews_on_service_order_id"
   end
 
   create_table "contractors", force: :cascade do |t|
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_215210) do
     t.datetime "remember_created_at"
     t.string "cpf"
     t.integer "category_id"
+    t.decimal "average"
     t.index ["category_id"], name: "index_contractors_on_category_id"
     t.index ["email"], name: "index_contractors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_contractors_on_reset_password_token", unique: true
