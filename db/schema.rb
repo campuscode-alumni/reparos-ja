@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_005340) do
+ActiveRecord::Schema.define(version: 2019_03_27_215210) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -46,14 +46,6 @@ ActiveRecord::Schema.define(version: 2019_03_27_005340) do
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_contractor_profile_sub_categories_on_profile_id"
     t.index ["sub_category_id"], name: "index_contractor_profile_sub_categories_on_sub_category_id"
-  end
-
-  create_table "contractor_profiles", force: :cascade do |t|
-    t.integer "contractor_id"
-    t.string "city"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["contractor_id"], name: "index_contractor_profiles_on_contractor_id"
   end
 
   create_table "contractor_reviews", force: :cascade do |t|
@@ -121,6 +113,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_005340) do
 
   create_table "service_orders", force: :cascade do |t|
     t.integer "estimate_id"
+    t.date "service_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["estimate_id"], name: "index_service_orders_on_estimate_id"
@@ -134,6 +127,17 @@ ActiveRecord::Schema.define(version: 2019_03_27_005340) do
     t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
+  create_table "user_reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "service_order_id"
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_order_id"], name: "index_user_reviews_on_service_order_id"
+    t.index ["user_id"], name: "index_user_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -143,6 +147,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_005340) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.decimal "average_rating"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

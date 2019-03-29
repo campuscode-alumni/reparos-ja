@@ -1,0 +1,7 @@
+<span>Avaliação Média: <%= @user.average_rating %></span><br>
+
+<% @user.user_reviews.each do |review| %>
+  <p>Serviço: <%= review.service_order.estimate.title %></p>
+  <p>Nota: <%= review.rating %></p>
+  <p>Comentário: <%= review.comment %></p>
+<% end %>
